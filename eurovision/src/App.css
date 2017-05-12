@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgba(116, 115, 151, 0.8);
   height: 150px;
   padding: 20px;
   color: white;
@@ -21,4 +21,23 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+body {
+  background:url('ukraine.jpg') no-repeat center center;
+  background-repeat:none;
+}
+
+.Card-main {
+  background-color: rgba(101, 144, 177, 0.8) !important;
+  box-shadow: none !important;
+}
+
+.Base-style {
+  color: white !important;
+}
+
+.Menu {
+  background-color: rgba(116, 115, 151, 0.88) !important;
+  color: white !important;
 }

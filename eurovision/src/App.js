@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CardComponent from './Card.js';
+import Axios from 'axios';
+import { Card } from 'semantic-ui-react';
+import MenuComponent from './Menu.js'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: [],
+    }
+  }
+
+  componentDidMount(){
+    Axios.get('https://3ahttr5986.execute-api.eu-central-1.amazonaws.com/prod/status')
+    .then(response => response.data.body)
+    .then(data => this.setState({data: data}))
+    .catch(error => console.log(error));
+  }
+
   render() {
+    console.log(this.state.data)
+    const results = this.state.data.map((elem, index) => <CardComponent element={elem} key={elem.country}/>);
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
+        <MenuComponent />
+        <div id="sidebar"></div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <Card.Group>{results}</Card.Group>
         </p>
       </div>
     );
