@@ -3,13 +3,16 @@ import './App.css';
 import CardComponent from './Card.js';
 import Axios from 'axios';
 import { Card } from 'semantic-ui-react';
-import MenuComponent from './Menu.js'
+//import MenuComponent from './Menu.js'
+import AboutComponent from './About.js'
+import { Menu } from 'semantic-ui-react'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       data: [],
+      activeItem: 'results',
     }
   }
 
@@ -20,13 +23,29 @@ class App extends Component {
     .catch(error => console.log(error));
   }
 
+  changeMenu(param){
+    this.setState({menu: param});
+  }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render() {
+    const { activeItem } = this.state
+    let results = {}
     console.log(this.state.data)
-    const results = this.state.data.map((elem, index) => <CardComponent element={elem} key={elem.country}/>);
+    console.log(this.state.activeItem);
+    console.log('vut')
+    if((this.state.activeItem === 'results') && this.state.data && this.state.data.length > 0)
+      results = this.state.data.map((elem, index) => <CardComponent element={elem} key={elem.country}/>);
+    else
+      results = <AboutComponent className='Background'/>
     return (
       <div className="App">
-        <MenuComponent />
-        <div id="sidebar"></div>
+          <Menu className='Menu'>
+            <Menu.Item header className='Base-style'>Viisut </Menu.Item >
+            <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} className='Base-style' />
+            <Menu.Item name='results' active={activeItem === 'results'} onClick={this.handleItemClick} className='Base-style' />
+          </Menu>
         <p className="App-intro">
           <Card.Group>{results}</Card.Group>
         </p>

@@ -25,7 +25,7 @@
 
 body {
   background:url('ukraine.jpg') no-repeat center center;
-  background-repeat:none;
+  background-repeat: repeat-y;
 }
 
 .Card-main {
@@ -40,4 +40,8 @@ body {
 .Menu {
   background-color: rgba(116, 115, 151, 0.88) !important;
   color: white !important;
+}
+
+.Background {
+  background-color: rgba(101, 144, 177, 0.8) !important;
 }
