@@ -3,7 +3,6 @@ import './App.css';
 import CardComponent from './Card.js';
 import Axios from 'axios';
 import { Card } from 'semantic-ui-react';
-//import MenuComponent from './Menu.js'
 import AboutComponent from './About.js'
 import { Menu } from 'semantic-ui-react'
 
@@ -32,9 +31,6 @@ class App extends Component {
   render() {
     const { activeItem } = this.state
     let results = {}
-    console.log(this.state.data)
-    console.log(this.state.activeItem);
-    console.log('vut')
     if((this.state.activeItem === 'results') && this.state.data && this.state.data.length > 0)
       results = this.state.data.map((elem, index) => <CardComponent element={elem} key={elem.country}/>);
     else
