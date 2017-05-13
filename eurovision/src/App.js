@@ -31,10 +31,15 @@ class App extends Component {
   render() {
     const { activeItem } = this.state
     let results = {}
-    if((this.state.activeItem === 'results') && this.state.data && this.state.data.length > 0)
+    let styl = ''
+    if((this.state.activeItem === 'results') && this.state.data && this.state.data.length > 0) {
       results = this.state.data.map((elem, index) => <CardComponent element={elem} key={elem.country}/>);
-    else
-      results = <AboutComponent className='Background'/>
+      styl = 'centered'
+    }
+    else {
+      results = <AboutComponent />
+      styl = 'centered Background'
+    }
     return (
       <div className="App">
           <Menu className='Menu'>
@@ -43,7 +48,7 @@ class App extends Component {
             <Menu.Item name='results' active={activeItem === 'results'} onClick={this.handleItemClick} className='Base-style' />
           </Menu>
         <p className="App-intro">
-          <Card.Group className='centered'>{results}</Card.Group>
+          <Card.Group className={styl}>{results}</Card.Group>
         </p>
       </div>
     );
