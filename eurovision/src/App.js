@@ -47,7 +47,7 @@ class App extends Component {
             <Menu.Item name='results' active={activeItem === 'results'} onClick={this.handleItemClick} className='Base-style' />
           </Menu>
         <p className="App-intro">
-          <Card.Group>{results}</Card.Group>
+          <Card.Group className='centered'>{results}</Card.Group>
         </p>
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Header } from 'semantic-ui-react'
 
 const AboutComponent = () => (
-  <Container text>
+  <Container text className='Base-style Background'>
     <Header as='h2' className='Base-style'>About Viisut.fi</Header>
     <p>
         Viisut is analyses Eurovision 2017 results based on Youtube views. One of the authors got this idea on tuesday night.
