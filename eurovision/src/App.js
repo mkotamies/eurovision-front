@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
-import CardComponent from './Card.js';
 import Axios from 'axios';
-import { Card } from 'semantic-ui-react';
-import AboutComponent from './About.js';
-import { Menu } from 'semantic-ui-react';
+import { List, Menu } from 'semantic-ui-react';
 import { PacmanLoader } from 'react-spinners';
+import ListItem from './ListItem';
+import AboutComponent from './About';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -32,16 +31,6 @@ class App extends Component {
 
   render() {
     const { activeItem } = this.state
-    let results = {}
-    let styl = ''
-    if((this.state.activeItem === 'results') && this.state.data && this.state.data.length > 0) {
-      results = this.state.data.map((elem, index) => <CardComponent element={elem} key={elem.country}/>);
-      styl = 'centered'
-    }
-    else {
-      results = <AboutComponent />
-      styl = 'centered Background'
-    }
     return (
       <div className="App">
         <Menu className='Menu'>
@@ -51,13 +40,20 @@ class App extends Component {
         </Menu>
         <div className="App-intro">
           {this.state.fetching &&
-            <div style={{ width: '80px', margin: '0 auto', height: '80px' }}>
-              <PacmanLoader loading={this.state.fetching} color={'#747397'} />
+            <div>
+              <div style={{ width: '80px', margin: '0 auto', height: '80px' }}>
+                <PacmanLoader loading={this.state.fetching} color={'#747397'} />
+              </div>
             </div>
-          } 
-          <div>
-            <Card.Group className={styl}>{results}</Card.Group>
-          </div>
+          }
+          {activeItem === 'results' && this.state.data && this.state.data.length > 0 ?
+            <List>
+                {this.state.data.map((elem, index) => (
+                  <ListItem key={index} data={elem} index={index} />
+                ))}
+            </List>:
+            <div className='Card-main'><AboutComponent /></div>
+          }
         </div>
       </div>
     );

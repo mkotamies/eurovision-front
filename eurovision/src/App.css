@@ -31,6 +31,8 @@ body {
 .Card-main {
   background-color: rgba(101, 144, 177, 0.8) !important;
   box-shadow: none !important;
+  margin: 16px;
+  padding: 8px !important;
 }
 
 .Base-style {
@@ -44,4 +46,8 @@ body {
 
 .Background {
   background-color: rgba(101, 144, 177, 0.8) !important;
+}
+
+#List-header {
+  color: white !important;
 }
