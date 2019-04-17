@@ -67,7 +67,7 @@ class App extends Component {
           {activeItem === 'about' && <div className='Card-main'><AboutComponent /></div>}
           {activeItem === 'topFive' && hasResults &&
             <div className='Card-main'>
-              <div style={{ color: 'white' }}>Chart provides information about top five contestants and their view counts.</div>
+              <div style={{ color: 'white', padding: '16px' }}>Chart provides information about top five contestants and their view counts.</div>
               <Chart data={this.state.data} screenWidth={this.state.screenWidth} />
             </div>}
         </div>

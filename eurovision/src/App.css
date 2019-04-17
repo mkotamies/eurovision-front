@@ -51,3 +51,8 @@ body {
 #List-header {
   color: white !important;
 }
+
+#List-content {
+  padding: 4px;
+  color: white;
+}
