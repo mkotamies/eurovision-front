@@ -43,7 +43,7 @@ class App extends Component {
     const hasResults = this.state.data && this.state.data.length > 0;
     return (
       <div className="App">
-        <Menu className='Menu'>
+        <Menu id='Menu'>
           <Menu.Item header className='Base-style'>Viisut </Menu.Item >
           <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} className='Base-style' />
           <Menu.Item name='results' active={activeItem === 'results'} onClick={this.handleItemClick} className='Base-style' />

@@ -39,9 +39,13 @@ body {
   color: white !important;
 }
 
-.Menu {
-  background-color: rgba(116, 115, 151, 0.88) !important;
-  color: white !important;
+#Menu {
+  background-color: rgba(116, 115, 151, 0.88);
+  color: white;
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 .Background {
